@@ -1,148 +1,159 @@
---------------------FUNCIONES---------------------bool----------
-absoluto :: Integer -> Integer 
+--FUNCIONES
+absoluto:: Integer -> Integer
 absoluto x = abs x
-redondeo :: Double -> Integer
+redondeo:: Double -> Integer
 redondeo x = ceiling x
-valor_siguiente :: Integer -> Integer
-valor_siguiente x = succ x
-func_menor :: Integer -> Integer -> Integer
-func_menor x y = min x y
-func_mayor :: Integer -> Integer -> Integer
-func_mayor x y = max x y
-func_div_entera :: Integer -> Integer -> Integer
-func_div_entera x y = div x y
-func_div_modulo :: Integer -> Integer -> Integer
-func_div_modulo x y = mod x y
-func_ParImpar :: Integer -> Bool
-func_ParImpar x = even x
-func_redondeoEntero :: Double -> Integer
-func_redondeoEntero x = floor x
-func_MaximoComun :: Integer -> Integer -> Integer
-func_MaximoComun x y = gcd x y
-func_NegacionBooleana :: Bool -> Bool
-func_NegacionBooleana x = not x
-func_NumeroPar :: Integer -> Bool
-func_NumeroPar x = odd x
-func_EsPositivo :: Integer -> Integer
-func_EsPositivo x = signum x
-func_segundoElemento :: Integer -> Integer -> Integer
-func_segundoElemento x y = snd (x,y)
+siguiente:: Double -> Double
+siguiente x = succ x
+menor:: Double-> Double -> Double
+menor x y = min x y
+mayor:: Double-> Double -> Double
+mayor x y = max x y
+division:: Integer -> Integer -> Integer 
+division x y = div x y --DIVISION ENTERA
+modulo:: Integer -> Integer -> Integer
+modulo x y = x mod y
+par:: Integer -> Bool 
+par x = even x
+numeroMayorEntero x = floor x
+maximoComunDivisor:: Integer -> Integer -> Integer
+maximoComunDivisor x y = gcd x y
+negacionBoleana:: Bool -> Bool
+negacionBoleana x = not x
+non:: Integer -> Bool 
+non x = odd x
+positivoNegativo:: Integer -> Integer
+positivoNegativo x = signum x
+segundoElemento:: Integer -> Integer -> Integer
+segundoElemento x y = snd (x,y)
 
-
-
-
-
-
---------------------FUNCIONES-------------------------------
---------------------CODIGO-------------------------------
-menu:: IO()
+menu :: IO()
 menu = do
-    putStrLn("----------MENU-----------")
-    putStrLn("(1)Devolver el valor absoluto de x")
-    putStrLn("(2)Redondeo de x")
-    putStrLn("(3)Valor siguiente de x")
-    putStrLn("(4)Menor de dos numeros")
-    putStrLn("(5)Mayor de dos numeros")
-    putStrLn("(6)Division entera de dos numeros")
-    putStrLn("(7)modulo de dos numeros")
-    putStrLn("(8)Calcula si un numero es par")
-    putStrLn("(9)numero entero no mayor que x")
-    putStrLn("(10)Maximo comun divisor")
-    putStrLn("(11)Negacion de un valor booleano")
-    putStrLn("(12)Verificar si un numero es noon")
-    putStrLn("(13)Devuelve uno si es positivo")
-    putStrLn("(14)Retorna el segundo elemento")
-    opcion <- getLine
-    case opcion of --switch
-        "1" -> do
-          putStrLn("Ingresa un numero para saber su valor absoluto")
-          n <- getLine -- valro ingresado string
-          let x = read n :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(absoluto x)) --llamando a la funcion
-        "2" -> do
-          putStrLn("Ingresa un numero para saber su valor redondeado")
-          n <- getLine -- valro ingresado string
-          let x = read n :: Double --variable de la funcion
-          putStrLn("El resultado es " ++ show(redondeo x))
-        "3" -> do
-          putStrLn("Ingresa un numero para saber el valor siguiente")
-          n <- getLine -- valro ingresado string
-          let x = read n :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(valor_siguiente x))
-        "4" -> do
-          putStrLn("Ingresa un el numero 1")
-          n1 <- getLine -- valro ingresado string
-          let x1 = read n1 :: Integer --variable de la funcion
-          putStrLn("Ingresa un el numero 2")
-          n2 <- getLine -- valro ingresado string
-          let x2 = read n2 :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_menor x1 x2))
-        "5" -> do
-          putStrLn("Ingresa un el numero 1")
-          n1 <- getLine -- valro ingresado string
-          let x1 = read n1 :: Integer --variable de la funcion
-          putStrLn("Ingresa un el numero 2")
-          n2 <- getLine -- valro ingresado string
-          let x2 = read n2 :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_mayor x1 x2))
-        "6" -> do
-          putStrLn("Ingresa un el numero 1")
-          n1 <- getLine -- valro ingresado string
-          let x1 = read n1 :: Integer --variable de la funcion
-          putStrLn("Ingresa un el numero 2")
-          n2 <- getLine -- valro ingresado string
-          let x2 = read n2 :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_div_entera x1 x2))
-        "7" -> do
-          putStrLn("Ingresa un el numero 1")
-          n1 <- getLine -- valro ingresado string
-          let x1 = read n1 :: Integer --variable de la funcion
-          putStrLn("Ingresa un el numero 2")
-          n2 <- getLine -- valro ingresado string
-          let x2 = read n2 :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_div_modulo x1 x2))
-        "8" -> do
-          putStrLn("Ingresa un numero para saber si es par o no")
-          n <- getLine -- valro ingresado string
-          let x = read n :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_ParImpar x))
-        "9" -> do
-          putStrLn "Ingresa un numero para saber su parte entera"
-          n <- getLine
-          let x = read n :: Double
-          putStrLn ("El resultado es " ++ show (func_redondeoEntero x))
-        "10" -> do
-          putStrLn("Ingresa un el numero 1")
-          n1 <- getLine -- valro ingresado string
-          let x1 = read n1 :: Integer --variable de la funcion
-          putStrLn("Ingresa un el numero 2")
-          n2 <- getLine -- valro ingresado string
-          let x2 = read n2 :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_MaximoComun x1 x2))
-        "11" -> do
-          putStrLn("Ingresa un el numero")
-          n1 <- getLine -- valro ingresado string
-          let x1 = read n1 :: Bool --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_NegacionBooleana x1))
-        "12" -> do
-          putStrLn("Ingresa un el numero")
-          n1 <- getLine -- valro ingresado string
-          let x1 = read n1 :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_ParImpar x1))
-        "13" -> do
-          putStrLn("Ingresa un el numero")
-          n1 <- getLine -- valro ingresado string
-          let x1 = read n1 :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_EsPositivo x1))
-        "14" -> do
-          putStrLn("Ingresa un el numero 1")
-          n1 <- getLine -- valro ingresado string
-          let x1 = read n1 :: Integer --variable de la funcion
-          putStrLn("Ingresa un el numero 2")
-          n2 <- getLine -- valro ingresado string
-          let x2 = read n2 :: Integer --variable de la funcion
-          putStrLn("El resultado es " ++ show(func_segundoElemento x1 x2))
+    putStrLn("=== MENU ==")
+    putStrLn("CALCULA LO QUE GUSTES:)")
+    putStrLn("1 VALOR ABSOLUTO DE X") --listo
+    putStrLn("2 REDONDEO DE X") --listo
+    putStrLn("3 VALOR SIGUIENTE DE X") --listo
+    putStrLn("4 MENOR DE DOS NUMEROS") --listo
+    putStrLn("5 MAYOR DE DOS NUMEROS") --listo
+    putStrLn("6 DIVISION ENTERA DE DOS NUMEROS") --listo
+    putStrLn("7 MODULO DE DOS NUMEROS") --listo
+    putStrLn("8 CALCULA SI ES PAR") --listo
+    putStrLn("9 NUMERO ENTERO NO MAYOR QUE X") --listo
+    putStrLn("10 MAXIMO COMUN DIVISOR") --listo
+    putStrLn("11 NEGACIÓN DE BOOLEANA")
+    putStrLn("12 VERIFICA SI ES NUMERO NON")
+    putStrLn("13 DEVUELVE 1 SI ES POSITIVO Y -1 SI ES NEGATIVO")
+    putStrLn("14 RETORNA EL SEGUNDO ELEMENTO")
     
+    opcion <- getLine
+    case opcion of
+      "1" -> do
+          putStrLn("Introduce el valor de X (entero)")
+          n1 <- getLine
+          let x = read n1 :: Integer
+          putStrLn("El valor absoluto de X es " ++ show (absoluto x))
+          menu
+      "2" -> do
+          putStrLn("Introduce el valor de X (con decimales)")
+          n1 <- getLine
+          let x = read n1 :: Double
+          putStrLn("El redondeo de X es " ++ show (redondeo x))
+          menu
+      "3" -> do
+          putStrLn("Introduce el valor de X")
+          n1 <- getLine
+          let x = read n1 :: Double
+          putStrLn("El numero que sigue de X es " ++ show (siguiente x))
+          menu
+      "4" -> do
+          putStrLn("Introduce el primer numero")
+          n1 <- getLine
+          let x = read n1 :: Double
+          putStrLn("Introduce el segundo numero")
+          n2 <- getLine
+          let y = read n2 :: Double
+          putStrLn("El menor de ambos es " ++ show (menor x y))
+          menu
+      "5" -> do
+          putStrLn("Introduce el primer numero")
+          n1 <- getLine
+          let x = read n1 :: Double
+          putStrLn("Introduce el segundo numero")
+          n2 <- getLine
+          let y = read n2 :: Double
+          putStrLn("El mayor de ambos es " ++ show (mayor x y))
+          menu
+      "6" -> do
+          putStrLn("Introduce el primer numero (ENTERO)")
+          n1 <- getLine
+          let x = read n1 :: Integer
+          putStrLn("Introduce el segundo numero (ENTERO)")
+          n2 <- getLine
+          let y = read n2 :: Integer
+          putStrLn("El resultado es " ++ show (division x y))
+          menu
+      "7" -> do
+          putStrLn("Introduce el primer numero entero")
+          n1 <- getLine
+          let x = read n1 :: Integer
+          putStrLn("Introduce el segundo numero entero")
+          n2 <- getLine
+          let y = read n2 :: Integer
+          putStrLn("El modulo es " ++ show (modulo x y))
+          menu
+      "8" -> do
+          putStrLn("Introduce el valor de x")
+          n1 <- getLine
+          let x = read n1 :: Integer
+          putStrLn(if par x  then "Es par"
+          else "No es par, por tanto es non")
+          menu
+      "9" -> do
+          putStrLn("Introduce el valor de x")
+          n1 <- getLine
+          let x = read n1 :: Double
+          putStrLn("El numero mayor entero es " ++ show(numeroMayorEntero x))
+          menu    
+      "10" -> do
+          putStrLn("Introduce el valor de x")
+          n1 <- getLine
+          let x = read n1 :: Integer
+          putStrLn("Introduce el valor de y")
+          n2 <- getLine
+          let y = read n2 :: Integer
+          putStrLn("El maximo comun divisor es " ++show (maximoComunDivisor x y))
+          menu    
+      "11" -> do
+          putStrLn("Introduce True o False")
+          n1 <- getLine
+          let x = read n1 :: Bool
+          putStrLn("La negacion boleana es " ++show(negacionBoleana x))
+          menu  
+      "12" -> do
+          putStrLn("Introduce el valor de x")
+          n1 <- getLine
+          let x = read n1 :: Integer
+          putStrLn(if non x  then "Es non"
+          else "No es non, por tanto es par")
+          menu
+      "13" -> do
+          putStrLn("Introduce el valor de x")
+          n1 <- getLine
+          let x = read n1 :: Integer
+          putStrLn(if positivoNegativo x == 1  then "1, por tanto Positivo"
+          else "-1, por tanto Negativo") 
+          menu 
+      "14" -> do
+          putStrLn("Introduce el valor de x")
+          n1 <- getLine
+          let x = read n1 :: Integer
+          putStrLn("Introduce el valor de y")
+          n2 <- getLine
+          let y = read n2 :: Integer
+          putStrLn("El segundo elemento de x y y es " ++show (segundoElemento x y))
+          menu
+          
 
-main:: IO ()
+main :: IO ()
 main = menu
